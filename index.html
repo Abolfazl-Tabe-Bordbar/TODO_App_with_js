@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <title>TODO</title>
+    <style>
+        #item1[type="text"]{
+            background-color: red;
+        }
+    </style>
+</head>
+<body class="bg-slate-400 w-screen h-screen flex justify-center items-center">
+    <div class="w-10/12 md:w-5/12 h-5/6  flex flex-col justify-start items-center box-border p-2 ">
+        <span class="w-full h-10 text-center text-xl text-white font-bold">My  ToDo</span>
+        <div class="w-10/12 h-44 bg-white rounded-md flex flex-col justify-around items-center box-border p-2">
+            <span class="text-lg font-bold">Add Work</span>
+            <input id="item_text" type="text" placeholder="Title..." class="w-full h-10 border-2 border-slate-400 rounded-full box-border p-2 outline-none mt-auto mb-2">
+            <button id="add_item" class="w-full h-10  bg-green-600 border-b-4 active:border-b-0 border-green-800 rounded-full outline-none font-bold text-white">ADD</button>
+        </div>
+        <div id="item_father" class="w-10/12 h-44 bg-white rounded-md flex flex-col justify-start items-center box-border p-2 mt-4 overflow-x-auto">
+            <div class="w-full  text-lg font-bold border-b-2 border-black flex justify-between items-center">
+                <span>My Work</span>
+                <span id="item_len">0</span>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script src="./main.js"></script>
+</html>
