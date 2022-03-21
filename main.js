@@ -201,9 +201,9 @@ add_item.addEventListener("click", function () {
     div_tag.appendChild(span_tag);
     span_tag.appendChild(span_text);
     item_father.appendChild(div_tag);
-
     item_text.value = null;
     item_len.innerHTML = localStorage.length;
+    location.reload();
   } else {
     item_text.style.borderColor = "red";
   }
