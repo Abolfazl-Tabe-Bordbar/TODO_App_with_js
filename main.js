@@ -11,11 +11,11 @@ if (localStorage.length > 0) {
     word_name.appendChild(div_text);
     word_name.id = namea;
     var div_tag = document.createElement("div");
-    var span_tag = document.createElement("span");
+    var span_tag = document.createElement("button");
     var span_text = document.createTextNode("Delete");
-    var span_tag2 = document.createElement("span");
+    var span_tag2 = document.createElement("button");
     var span_text2 = document.createTextNode("Edit");
-    var span_tag3 = document.createElement("span");
+    var span_tag3 = document.createElement("button");
     var span_text3 = document.createTextNode("Change");
     var input_tag = document.createElement("input");
     input_tag.classList.add(
@@ -118,11 +118,11 @@ add_item.addEventListener("click", function () {
     var word_name = document.createElement("span");
     word_name.appendChild(div_text);
     var div_tag = document.createElement("div");
-    var span_tag = document.createElement("span");
+    var span_tag = document.createElement("button");
     var span_text = document.createTextNode("Delete");
-    var span_tag2 = document.createElement("span");
+    var span_tag2 = document.createElement("button");
     var span_text2 = document.createTextNode("Edit");
-    var span_tag3 = document.createElement("span");
+    var span_tag3 = document.createElement("button");
     var span_text3 = document.createTextNode("Change");
     var input_tag = document.createElement("input");
     input_tag.classList.add("hidden");
