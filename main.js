@@ -1,10 +1,12 @@
 var item_father = document.getElementById("item_father");
 var item_len = document.getElementById("item_len");
+var resit = document.getElementById("resit");
 var text;
 if (localStorage.length > 0) {
-  for (var i = 1; i <= localStorage.length; i++) {
+  for (var i = 0; i < localStorage.length; i++) {
+    var a = Object.keys(localStorage).sort();
     item_len.innerHTML = localStorage.length;
-    var namea = "item" + i;
+    var namea = a[i];
     text = localStorage[namea];
     var div_text = document.createTextNode(text);
     var word_name = document.createElement("span");
@@ -49,7 +51,7 @@ if (localStorage.length > 0) {
       "w-auto",
       "h-7",
       "rounded-full",
-      "bg-green-600",
+      "bg-orange-400",
       "hover:cursor-pointer",
       "ml-auto",
       "mr-2",
@@ -90,7 +92,8 @@ if (localStorage.length > 0) {
       "justify-between",
       "items-center",
       "box-border",
-      "p-2"
+      "p-2",
+      "hover:bg-slate-400"
     );
     div_tag.appendChild(input_tag);
     div_tag.appendChild(word_name);
@@ -102,6 +105,8 @@ if (localStorage.length > 0) {
     span_tag.appendChild(span_text);
 
     item_father.appendChild(div_tag);
+   
+    
   }
 }
 var item_text = document.getElementById("item_text");
@@ -114,105 +119,15 @@ add_item.addEventListener("click", function () {
   text = text.trim();
   if (text !== "") {
     localStorage.setItem(name, text);
-    var div_text = document.createTextNode(text);
-    var word_name = document.createElement("span");
-    word_name.appendChild(div_text);
-    var div_tag = document.createElement("div");
-    var span_tag = document.createElement("button");
-    var span_text = document.createTextNode("Delete");
-    var span_tag2 = document.createElement("button");
-    var span_text2 = document.createTextNode("Edit");
-    var span_tag3 = document.createElement("button");
-    var span_text3 = document.createTextNode("Change");
-    var input_tag = document.createElement("input");
-    input_tag.classList.add("hidden");
-    input_tag.value = text;
-    input_tag.type = "text";
-    span_tag.classList.add(
-      "w-auto",
-      "h-7",
-      "rounded-full",
-      "bg-red-500",
-      "hover:cursor-pointer",
-
-      "text-white",
-      "flex",
-      "justify-center",
-      "items-center",
-      "box-border",
-      "p-2"
-    );
-    span_tag.id = name;
-    span_tag.setAttribute("onclick", "del(this.id)");
-    span_tag2.classList.add(
-      "w-auto",
-      "h-7",
-      "rounded-full",
-      "bg-green-600",
-      "hover:cursor-pointer",
-      "ml-auto",
-      "mr-2",
-      "text-white",
-      "flex",
-      "justify-center",
-      "items-center",
-      "box-border",
-      "p-2"
-    );
-    span_tag2.id = name;
-    span_tag2.setAttribute("onclick", "change(this.id)");
-    span_tag3.classList.add(
-      "w-auto",
-      "h-7",
-      "rounded-full",
-      "bg-green-600",
-      "hover:cursor-pointer",
-      "ml-auto",
-      "mr-2",
-      "text-white",
-      "hidden",
-      "justify-center",
-      "items-center",
-      "box-border",
-      "p-2"
-    );
-    span_tag3.id = namea;
-    span_tag3.setAttribute("onclick", "edied(this.id)");
-    div_tag.classList.add(
-      "w-full",
-      "h-10",
-      "bg-slate-300",
-      "rounded-full",
-      "mt-2",
-      "flex",
-      "justify-between",
-      "items-center",
-      "box-border",
-      "p-2"
-    );
-    span_tag.id = name;
-    span_tag.setAttribute("onclick", "del(this.id)");
-    div_tag.appendChild(input_tag);
-    div_tag.appendChild(word_name);
-    div_tag.appendChild(span_tag3);
-    span_tag3.appendChild(span_text3);
-    div_tag.appendChild(span_tag2);
-    span_tag2.appendChild(span_text2);
-    div_tag.appendChild(span_tag);
-    span_tag.appendChild(span_text);
-    item_father.appendChild(div_tag);
     item_text.value = null;
-    item_len.innerHTML = localStorage.length;
     location.reload();
   } else {
     item_text.style.borderColor = "red";
   }
 });
 function del(id) {
-  var a = document.getElementById(id).parentElement;
   localStorage.removeItem(id);
-  item_father.removeChild(a);
-  item_len.innerHTML = localStorage.length;
+  location.reload();
 }
 function edi(id) {
   var par = document.getElementById(id).parentElement;
@@ -244,3 +159,7 @@ function change(id) {
     input.style.backgroundColor = "red";
   }
 }
+resit.addEventListener("click",function () {
+  localStorage.clear();
+  location.reload()
+});
